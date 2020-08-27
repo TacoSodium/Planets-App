@@ -9,10 +9,10 @@ import { Planet } from "../models/planet";
 export class PlanetService {
 
   planets: Planet[] = [
-    new Planet("Venus", 0, 67),
-    new Planet("Mercury", 0, 57),
-    new Planet("Neptune", 14, 4503),
-    new Planet("Jupiter", 79 , 779)
+    new Planet("Venus", 0, "67"),
+    new Planet("Mercury", 0, "57"),
+    new Planet("Neptune", 14, "4,503"),
+    new Planet("Jupiter", 79 , "779")
   ];
 
   addPlanet(newPlanet: Planet) {

@@ -1,1 +1,1 @@
-<p>planets-list works!</p>
+<app-planet-detail *ngFor="let planet of planetService.planets" [planet]=planet (sortByDistance)="planetService.sortByDistance()"></app-planet-detail>
