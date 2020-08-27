@@ -1,0 +1,25 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h4 {
+    margin: 10px;
+}
+
+input {
+    outline-color: brown;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+input::placeholder {
+    opacity: 60%;
+}
+
+input.moons {
+    width: 70px;
+}
+
+.container {
+    margin-left: 10px;
+}
