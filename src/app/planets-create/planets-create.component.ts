@@ -11,16 +11,20 @@ export class PlanetsCreateComponent implements OnInit {
 
   constructor(public planetService: PlanetService) { }
 
-  createPlanet(name: String, moons: String, distance: String) {
+  createPlanet(name: String, moons: String, distance: string) {
     var intMoons = +moons;
     var boolMoons = isNaN(intMoons);
+    var intDistance = +distance;
+    var boolDistance = isNaN(intDistance);
 
     if (name === "" || moons === "" || distance === "") {
       alert("Fields cannot be empty");
     } else if (boolMoons == true) {
       alert("Please enter a vaild number of moons");
+    } else if (boolDistance == true) {
+      alert("Please enter a valid distance");
     } else {
-      this.planetService.addPlanet(new Planet(name, intMoons, distance));
+      this.planetService.addPlanet(new Planet(name, intMoons, intDistance));
     }
   }
 
