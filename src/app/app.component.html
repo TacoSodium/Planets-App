@@ -2,7 +2,7 @@
   <button (click)='ontoggleSort()'>{{toggleText}}</button>
 
   <div>
-    <app-planets-list></app-planets-list>
+    <app-planets-list [property]="toggleParameter"></app-planets-list>
   </div>
 
   <div>

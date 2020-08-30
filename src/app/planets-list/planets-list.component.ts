@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PlanetService } from "../services/planet.service";
 
 @Component({
@@ -12,6 +12,9 @@ export class PlanetsListComponent implements OnInit {
   constructor(public planetService: PlanetService) {
     this.planetService = planetService;
   }
+
+  @Input()
+  property: string;
 
   ngOnInit(): void {
   }

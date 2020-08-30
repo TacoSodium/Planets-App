@@ -19,6 +19,11 @@ export class PlanetService {
     this.planets.push(newPlanet);
   }
 
+  deletePlanet(remove: Planet) {
+    let unwantedPlanet = this.planets.indexOf(remove);
+    this.planets.splice(unwantedPlanet, 1);
+  }
+
   sortBy(prop: string) {
     return this.planets.sort((a, b) => a[prop] > b[prop] ? 1 : a[prop] < b[prop] ? -1 : 0);
   }
