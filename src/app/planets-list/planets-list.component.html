@@ -1,1 +1,1 @@
-<app-planet-detail *ngFor="let planet of planetService.sortBy(property)" [planet]=planet></app-planet-detail>
+<app-planet-detail *ngFor="let planet of planetService.sortBy(property)" [planet]=planet (onDelete)="planetService.deletePlanet($event)"></app-planet-detail>
