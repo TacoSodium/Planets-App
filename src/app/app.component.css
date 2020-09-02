@@ -5,3 +5,8 @@
 button {
     margin-left: 10px;
 }
+
+.planetsContainer {
+    display: flex;
+    flex-direction: row;
+}
