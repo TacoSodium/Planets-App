@@ -15,8 +15,6 @@ export class PlanetDetailComponent implements OnInit {
   @Output()
   onDelete = new EventEmitter<Planet>();
 
-  toggleDefault: string = "Edit";
-  toggleText: string = this.toggleDefault;
   editing: boolean = false;
 
   planetForm: FormGroup;
@@ -37,19 +35,19 @@ export class PlanetDetailComponent implements OnInit {
     });
   }
 
-  get name() { return this.planetForm.get('name'); }
-
+  //deletes planet from planet list
   deletePlanet(remove: Planet) {
     this.onDelete.emit(remove);
   }
 
+  //begins editing
   startEdit() {
     this.editing = true;
-    this.toggleText = "Save";
   }
 
-  stopEdit() {
+  //completes editing of inputs
+  stopEdit(event: Event) {
+    event.preventDefault();
     this.editing = false;
-    this.toggleText = this.toggleDefault;
   }
 }
