@@ -1,4 +1,4 @@
-<div class="planetContainer">
+<form #planetForm="ngForm" class="planetContainer">
     <div>
         <h2>{{planet.Name}}</h2>
 
@@ -7,5 +7,26 @@
             <p>Distance from Sun: {{planet.DistanceFromSun}},000000 kms</p>
         </div>
     </div>
-    <button (click)="deletePlanet(planet)">Remove</button>
-</div>
+
+    <div *ngIf="editing">
+        <input type="text" placeholder="Name" name="name" [(ngModel)]="planet.Name" required #name="ngModel">
+        <div *ngIf="name.errors.required">Name is required</div>
+
+        <input type="text" placeholder="No. Moons" name="moons" id="moons" [(ngModel)]="planet.Moons" pattern="[0-9]*"
+            required #moons>
+        <div *ngIf="moons.errors.required">Number of moons is required</div>
+        <div *ngIf="moons.errors.pattern">Must be a number</div>
+
+        <input type="text" placeholder="Distance from Sun" name="distance" id="distance"
+            [(ngModel)]="planet.DistanceFromSun" pattern="[0-9]*" required #distance>
+        <div *ngIf="distance.errors.required">Distance from Sun is required</div>
+        <div *ngIf="distance.errors.pattern">Must be a number</div>
+    </div>
+
+    <div>
+        <button *ngIf="!editing" (click)="startEdit()">{{toggleText}}</button>
+        <button *ngIf="editing" (click)="stopEdit()">{{toggleText}}</button>
+
+        <button (click)="deletePlanet(planet)">Remove</button>
+    </div>
+</form>

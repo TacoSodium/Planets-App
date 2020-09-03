@@ -13,8 +13,19 @@ p {
 }
 
 button {
-   width: fit-content;
+    width: fit-content;
     margin-bottom: 20px;
+    margin-right: 5px;
+}
+
+input {
+    outline-color: brown;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+
+input::placeholder {
+    opacity: 60%;
 }
 
 .planetContainer {
@@ -29,4 +40,12 @@ button {
 .planetDetails {
     display: flex;
     flex-direction: row;
+}
+
+#distance {
+    width: 135px;
+}
+
+#moons {
+    width: 70px;
 }

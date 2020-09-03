@@ -1,9 +1,10 @@
 <div class="container">
     <h4>Add new Planet</h4>
-    <div>
+    <div class="inputContainer">
         <input type="text" class="name" placeholder="Name" #name>
         <input type="text" class="moons" placeholder="No. Moons" #moons>
         <input type="text" class="distance" placeholder="Distance from Sun" #distance>
+        <p>,000000 kms</p>
     </div>
 
     <button (click)="createPlanet(name.value, moons.value, distance.value)">Add</button>
