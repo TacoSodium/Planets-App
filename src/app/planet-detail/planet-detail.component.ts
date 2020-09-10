@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewRef, ViewChild } from '@angular/core';
 import { Planet } from "../models/planet";
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-planet-detail',
@@ -17,22 +17,13 @@ export class PlanetDetailComponent implements OnInit {
 
   editing: boolean = false;
 
-  planetForm: FormGroup;
+  @ViewChild("planetForm")
+  planetForm: NgForm;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.planetForm = new FormGroup({
-      name: new FormControl(this.planet.Name, Validators.required,),
-      moons: new FormControl(this.planet.Moons, [
-        Validators.required,
-        Validators.pattern('number')
-      ]),
-      distance: new FormControl(this.planet.DistanceFromSun, [
-        Validators.required,
-        Validators.pattern('number')
-      ])
-    });
+    
   }
 
   //deletes planet from planet list
