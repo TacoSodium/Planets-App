@@ -12,18 +12,20 @@
         <input type="text" placeholder="Name" name="name" [(ngModel)]="planet.Name" #name="ngModel" required>
 
         <input type="text" placeholder="No. Moons" name="moons" id="moons" [(ngModel)]="planet.Moons"
-            ng-pattern="number" #moons="ngModel" required>
+        pattern="[0-9]*" #moons="ngModel" required>
 
         <input type="text" placeholder="Distance from Sun" name="distance" id="distance"
-            [(ngModel)]="planet.DistanceFromSun" ng-pattern="number" #distance="ngModel" required>
-
-        <div ng-show="planetForm.name.$error.required && planetForm.name.$dirty">Name is required</div>
-        <div ng-show="planetForm.moons.$invalid && planetForm.moons.$dirty">Number of Moons is required</div>
-        <div ng-show="planetForm.distance.$invalid && planetForm.distance.$dirty">Distance from Sun is required</div>
-        <div ng-show="planetForm.moons.$error.pattern || planetForm.distance.$error.pattern">Must be a number</div>
+            [(ngModel)]="planet.DistanceFromSun" pattern="[0-9]*" #distance="ngModel" required>
+        <div *ngIf="name.errors?.required">Name is required</div>
+        <div *ngIf="moons.errors?.required">Number of Moons is required</div>
+        <div *ngIf="moons.errors?.pattern">Number of Moons is not a number</div>
+        
+        <div *ngIf="distance.errors?.required">Number of Moons is required</div>
+        <div *ngIf="distance.errors?.pattern">Number of Moons is not a number</div>
     </div>
 
     <div>
+        
         <button *ngIf="!editing" (click)="startEdit()">Edit</button>
         <button type="submit" *ngIf="editing">Save</button>
 
