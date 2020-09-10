@@ -19,13 +19,21 @@ button {
 }
 
 input {
-    outline-color: brown;
+    outline-color: rgb(255, 208, 0);
     margin-right: 5px;
     margin-bottom: 10px;
 }
 
 input::placeholder {
     opacity: 60%;
+}
+
+input.ng-valid {
+    outline-color: rgb(3, 179, 3);
+}
+
+input.ng-invalid {
+    outline-color: crimson;
 }
 
 .planetContainer {
