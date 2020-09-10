@@ -26,11 +26,11 @@ export class PlanetDetailComponent implements OnInit {
       name: new FormControl(this.planet.Name, Validators.required,),
       moons: new FormControl(this.planet.Moons, [
         Validators.required,
-        Validators.pattern('[0-9]*')
+        Validators.pattern('number')
       ]),
       distance: new FormControl(this.planet.DistanceFromSun, [
         Validators.required,
-        Validators.pattern('[0-9]*')
+        Validators.pattern('number')
       ])
     });
   }

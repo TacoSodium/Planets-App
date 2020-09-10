@@ -1,4 +1,4 @@
-<form (ngSubmit)="stopEdit($event)" #planetForm="ngForm" class="planetContainer" formGroupName="planetForm">
+<form (ngSubmit)="stopEdit($event)" #planetForm="ngForm" class="planetContainer" formGroupName="planetForm" >
     <div>
         <h2>{{planet.Name}}</h2>
 
@@ -9,21 +9,18 @@
     </div>
 
     <div *ngIf="editing">
-        <input type="text" placeholder="Name" name="name" [(ngModel)]="planet.Name" required #name="ngModel">
+        <input type="text" placeholder="Name" name="name" [(ngModel)]="planet.Name" #name="ngModel" required>
 
-        <input type="text" placeholder="No. Moons" name="moons" id="moons" [(ngModel)]="planet.Moons" pattern="[0-9]*"
-            required #moons="ngModel">
+        <input type="text" placeholder="No. Moons" name="moons" id="moons" [(ngModel)]="planet.Moons"
+            ng-pattern="number" #moons="ngModel" required>
 
         <input type="text" placeholder="Distance from Sun" name="distance" id="distance"
-            [(ngModel)]="planet.DistanceFromSun" pattern="[0-9]*" required #distance="ngModel">
+            [(ngModel)]="planet.DistanceFromSun" ng-pattern="number" #distance="ngModel" required>
 
-        <div *ngIf="name.errors && (name.errors.required || moons.errors.required || distance.errors.required)">All
-            fields are required
-        </div>
-        <div *ngIf="moons.errors && moons.errors.pattern">Moons must be a
-            number</div>
-        <div *ngIf="distance.errors && distance.errors.pattern">Distance from sun must be a
-            number</div>
+        <div ng-show="planetForm.name.$error.required && planetForm.name.$dirty">Name is required</div>
+        <div ng-show="planetForm.moons.$invalid && planetForm.moons.$dirty">Number of Moons is required</div>
+        <div ng-show="planetForm.distance.$invalid && planetForm.distance.$dirty">Distance from Sun is required</div>
+        <div ng-show="planetForm.moons.$error.pattern || planetForm.distance.$error.pattern">Must be a number</div>
     </div>
 
     <div>
