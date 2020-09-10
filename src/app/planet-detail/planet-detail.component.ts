@@ -48,6 +48,9 @@ export class PlanetDetailComponent implements OnInit {
   //completes editing of inputs
   stopEdit(event: Event) {
     event.preventDefault();
-    this.editing = false;
+    console.log(this.planetForm);
+    if (this.planetForm.valid) {
+      this.editing = false;
+    }
   }
 }
